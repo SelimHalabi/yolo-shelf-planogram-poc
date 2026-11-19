@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Shelf Planogram Compliance Dashboard</title>
+<style>
+  body { font-family: system-ui, -apple-system, sans-serif; margin: 2rem; background: #f8fafc; color: #0f172a; }
+  .cards { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+  .card { background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 1rem 1.4rem; min-width: 150px; }
+  .card .val { font-size: 1.8rem; font-weight: 700; color: #1e3a8a; }
+  img { max-width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; margin-bottom: 1.5rem; }
+  table { border-collapse: collapse; width: 100%; background: #fff; }
+  th, td { border: 1px solid #cbd5e1; padding: 0.6rem 0.8rem; text-align: left; }
+  th { background: #1e293b; color: #fff; }
+  .badge { padding: 0.2rem 0.55rem; border-radius: 4px; font-weight: 600; font-size: 0.85rem; }
+  .badge.ok { background: #dcfce7; color: #166534; }
+  .badge.bad { background: #fee2e2; color: #991b1b; }
+</style>
+</head>
+<body>
+  <h1>Shelf Planogram Compliance Dashboard (POC)</h1>
+  <div class="cards">
+    <div class="card"><div>Total Zones</div><div class="val">8</div></div>
+    <div class="card"><div>Compliant (Green)</div><div class="val">5</div></div>
+    <div class="card"><div>Mismatches (Red)</div><div class="val">3</div></div>
+    <div class="card"><div>Compliance Rate</div><div class="val">62.5%</div></div>
+  </div>
+  <img src="sample_overlay_result.png" alt="Shelf Compliance Overlay" />
+  <table>
+    <thead>
+      <tr><th>Zone</th><th>Position</th><th>Expected SKU</th><th>Detected SKU</th><th>Status</th><th>Conf</th><th>IoU</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>R1-S1</td><td>Row 1 / Slot 1</td><td>SKU_COLA</td><td>SKU_COLA</td><td><span class='badge ok'>MATCH</span></td><td>0.96</td><td>0.59</td></tr><tr><td>R1-S2</td><td>Row 1 / Slot 2</td><td>SKU_WATER</td><td>SKU_WATER</td><td><span class='badge ok'>MATCH</span></td><td>0.96</td><td>0.59</td></tr><tr><td>R1-S3</td><td>Row 1 / Slot 3</td><td>SKU_JUICE</td><td>SKU_COLA</td><td><span class='badge bad'>MISPLACED</span></td><td>0.96</td><td>0.59</td></tr><tr><td>R1-S4</td><td>Row 1 / Slot 4</td><td>SKU_TEA</td><td>SKU_TEA</td><td><span class='badge ok'>MATCH</span></td><td>0.96</td><td>0.59</td></tr><tr><td>R2-S1</td><td>Row 2 / Slot 1</td><td>SKU_COLA</td><td>SKU_COLA</td><td><span class='badge ok'>MATCH</span></td><td>0.96</td><td>0.59</td></tr><tr><td>R2-S2</td><td>Row 2 / Slot 2</td><td>SKU_WATER</td><td>NONE</td><td><span class='badge bad'>MISSING</span></td><td>0.00</td><td>0.00</td></tr><tr><td>R2-S3</td><td>Row 2 / Slot 3</td><td>SKU_JUICE</td><td>SKU_JUICE</td><td><span class='badge ok'>MATCH</span></td><td>0.96</td><td>0.59</td></tr><tr><td>R2-S4</td><td>Row 2 / Slot 4</td><td>SKU_TEA</td><td>SKU_JUICE</td><td><span class='badge bad'>MISPLACED</span></td><td>0.96</td><td>0.59</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>
